@@ -7,14 +7,13 @@ const UpdateCoffee = () => {
   const navigate = useNavigate();
   const { _id, name, chef, price, taste, category, photo_URL, details } =
     useLoaderData();
-  // console.log(_id, name, chef, price, taste, category, photo_URL, details);
 
   const handleUpdateCoffee = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const updateCoffee = Object.fromEntries(formData.entries());
-    console.log(updateCoffee);
+
     fetch(`http://localhost:3000/coffees/${_id}`, {
       method: "PUT",
       headers: {
@@ -24,7 +23,6 @@ const UpdateCoffee = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           Swal.fire({
             position: "center",

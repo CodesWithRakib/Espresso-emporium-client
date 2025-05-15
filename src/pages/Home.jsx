@@ -7,7 +7,7 @@ import FollowUs from "../components/FollowUs";
 
 const Home = () => {
   const coffees = useLoaderData();
-  console.log(coffees);
+
   return (
     <div>
       <div
